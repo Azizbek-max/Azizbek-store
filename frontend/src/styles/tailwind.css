@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base colors matching Amazon-esque palette */
+:root {
+  --brand-blue: #146eb4;
+  --accent-orange: #ff9900;
+}
+
+/* Focus-visible utility support */
+:focus {
+  outline: none;
+}
+
+.focus-visible:focus {
+  box-shadow: 0 0 0 3px rgba(20,110,180,0.3);
+}

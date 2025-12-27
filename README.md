@@ -1,54 +1,62 @@
-# Amazon Affiliate Site (Admin + Client)
+# Amazon Affiliate Site (React + Node.js/Express + MongoDB)
 
-Simple project with:
-- Express backend (JSON file DB) - `server.js` (data stored in `data.json`) 
-- Admin panel at `/public/admin.html` (login required)
-- Client frontend at `/Index.html` to show posts
-- Image uploads stored in `uploads/`
+Professional Amazon Affiliate website starter built with:
+- Frontend: React (Vite) + Tailwind CSS + react-i18next + react-helmet-async
+- Backend: Node.js + Express + MongoDB (Mongoose) + Cloudinary for image hosting
 
-Quick start:
-1. Install: `npm install`
-2. Start: `npm run dev` (requires `nodemon`) or `npm start`
-3. Create initial admin: open `http://localhost:3000/public/admin.html` and use the "Create initial admin" button (only if no admin exists).
-4. Login and create posts (id, title, description, link, image upload → choose file, click “Upload image”, then Create). IDs should be alphanumeric (letters, numbers, - or _), up to 50 chars.
+Structure
+- `frontend/` — React client (Vite)
+- `backend/` — Express API
 
-Testing & verification:
-- Create admin via admin UI.
-- Login, create a post. Verify it appears on the client page `Index.html`.
-- Test image upload: choose file -> Upload image -> preview should appear -> Create post -> image served from `/uploads/`.
-- Test Edit: click Edit on a post to load it into the form, change fields, Update.
-- Test Delete: Delete button shows confirmation and removes post.
+Features (implemented)
+- Admin (single admin user seeded or created via env) with JWT authentication
+- Admin CRUD for posts: title, description, categories, image upload (Cloudinary), required affiliate link (admin pastes their own affiliate URL)
+- Client: product list with search & category filter, product detail page, "View on Amazon" button opens affiliate link in a new tab
+- User auth (register/login), comments with star ratings, newsletter subscribe
+- SEO: per-page meta tags, `sitemap.xml`, `robots.txt`
+- Security: Helmet, input sanitization, XSS protection, rate limiting, optional reCAPTCHA verification
+- i18n: English & Uzbek with language switcher
+- Google Analytics (optional) integration
 
-Notes & improvements made:
-- Replaced SQLite with a simple JSON store (`data.json`) to avoid native build dependencies on Windows.
-- Added validation for post inputs (ID format, link must start with http/https).
-- Added **category** support for posts (options: furniture, tech, uncategorized). Admin can set category when creating/updating a post.
-- Implemented **search bar** and **category filter** on the client page. Search matches post ID or title and can be combined with category filtering.
-- Implemented **full Vercel deployment path** (Variant B): serverless API functions using **MongoDB Atlas** and **Cloudinary** for uploads. See `api/` folder and `api/README.md` for required env vars and details.
-- Improved admin UI: image preview, upload feedback, pagination in the post list, clearer messages.
+Important restrictions
+- No Amazon API or scraping
+- No ASIN fields
+- Affiliate links are added manually by the admin (e.g., `https://amzn.to/xxxx`)
 
----
+Getting started (local development)
 
-## Vercel Deployment & Migrations
+1. Clone repo
+2. Backend setup
+   - cd backend
+   - copy `.env.example` to `.env` and fill values: `MONGO_URI`, `JWT_SECRET`, `CLOUDINARY_*`, `CLIENT_URL` (e.g., `http://localhost:3000`), optionally `RECAPTCHA_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`
+   - npm install
+   - npm run seed (create the admin user)
+   - npm run dev
 
-### Quick Vercel steps
-1. Push code to GitHub (create repo and push).  
-2. On Vercel: New Project → Import GitHub repo.  
-3. In Vercel Project Settings → Environment Variables, add:
-   - `MONGODB_URI`  
-   - `MONGODB_DB` (optional)  
-   - `JWT_SECRET`  
-   - `CLOUDINARY_CLOUD_NAME`  
-   - `CLOUDINARY_UPLOAD_PRESET`  
-4. Deploy; Vercel will pick up `/api` functions and static files.
+3. Frontend setup
+   - cd frontend
+   - copy `.env.example` to `.env` and set `VITE_API_URL=http://localhost:5000/api` (and optionally `VITE_GA_MEASUREMENT_ID` for analytics)
+   - npm install
+   - npm run dev
 
-### Migrate local `data.json` to MongoDB
-1. Set env vars locally: `MONGODB_URI` (and `MONGODB_DB` if you want a custom DB name).  
-2. Run: `npm run migrate` — this will import `admins` and `posts` into MongoDB (skips duplicates).
+Admin usage
+- Login: go to `/admin/login` and enter the seeded admin credentials (from `.env` or the seed script output)
+- Create a post: provide title, description, (comma-separated) categories, upload image, and paste your pre-made Amazon affiliate link in the Affiliate Link field. Save.
 
-If you want, I can prepare a short checklist and walk you through linking your GitHub repo to Vercel and setting env vars step-by-step.
+Deployment
+- Frontend: Recommended Vercel. Add environment variable `VITE_API_URL` pointing to the deployed backend and (optionally) `VITE_GA_MEASUREMENT_ID`.
+- Backend: Recommended Render (example `render.yaml` included) or Railway. Set env vars in the service settings (`MONGO_URI`, `JWT_SECRET`, `CLOUDINARY_*`, `CLIENT_URL`, etc.). Run the `npm run seed` script once to create the admin user.
 
-Security notes:
-- Change `SESSION_SECRET` env var in production.
-- The one-time `/api/setup` is allowed only if there are no admins. Remove or secure it in production as needed.
-- This is a simple example; harden for production (CSRF, rate limiting, stronger session cookies, input sanitization).
+Quick deploy steps are available in `DEPLOY.md` and a sample `render.yaml` has been added to help automate Render service creation.
+
+Security & compliance notes
+- Ensure HTTPS in production
+- No automated affiliate link generation — admin must manage links manually
+
+What's left / optional
+- Image optimization pipeline (e.g., Cloudinary transformations)
+- End-to-end tests, accessibility audits, and performance tuning
+- Mailchimp integration for newsletters (optional)
+
+See `backend/README.md` and `frontend/README.md` for more details and commands.
+
