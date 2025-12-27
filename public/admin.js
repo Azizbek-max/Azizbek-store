@@ -139,7 +139,15 @@ uploadBtn.addEventListener('click', async ()=>{
     const url = `https://api.cloudinary.com/v1_1/${cfg.cloud_name}/image/upload`;
     const fd = new FormData(); fd.append('file', file); fd.append('upload_preset', cfg.upload_preset);
     const res = await fetch(url, { method: 'POST', body: fd });
-    if (!res.ok) { const text = await res.text(); throw new Error('Upload failed: ' + text); }
+    if (!res.ok) {
+      let errText;
+      try { const ej = await res.json(); errText = JSON.stringify(ej); }
+      catch(e){ errText = await res.text(); }
+      console.error('Cloudinary upload error', res.status, errText);
+      if (res.status === 404) throw new Error('Cloudinary not found (check CLOUDINARY_CLOUD_NAME). Response: ' + errText);
+      if (res.status === 401 || res.status === 403) throw new Error('Cloudinary auth error (check upload preset and that it is unsigned). Response: ' + errText);
+      throw new Error('Upload failed: ' + errText);
+    }
     const j = await res.json();
     uploadBtn.disabled = false; uploadBtn.textContent = 'Upload image';
     if (j.secure_url) { uploadedUrl.textContent = j.secure_url; previewImg.src = j.secure_url; previewImg.classList.remove('hidden'); formMsg.textContent = 'Rasm yuklandi.'; setTimeout(()=>formMsg.textContent='',3000);} else { formMsg.textContent = 'Yuklashda muammo: no secure_url'; }
