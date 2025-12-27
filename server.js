@@ -178,4 +178,8 @@ app.post('/api/migrate-categories', isAuthenticated, (req, res) => {
   res.json({ ok: true, changed });
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+const server = app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+  console.log('PID:', process.pid);
+  console.log('Address:', server.address());
+});
