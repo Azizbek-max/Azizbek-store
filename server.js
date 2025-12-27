@@ -48,6 +48,14 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/', express.static(path.join(__dirname)));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+// Root sahifa va barcha frontend so‘rovlar uchun Index.html ni yuborish
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
+    return res.status(404).json({ error: 'Not found' });
+  }
+  res.sendFile(path.join(__dirname, 'Index.html'));
+});
+
 // Helper
 function isAuthenticated(req, res, next) {
   if (req.session && req.session.user) return next();
