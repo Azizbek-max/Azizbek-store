@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Amazon Affiliate Site — Best Product Recommendations</title>
+    <meta name="description" content="Curated Amazon product recommendations and honest reviews to help you choose the best gear.">
+    <meta property="og:title" content="Best Product Recommendations — Amazon Affiliate">
+    <meta property="og:description" content="Curated Amazon product recommendations and honest reviews to help you choose the best gear.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-blue-600 px-3 py-2 rounded">Skip to content</a>
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto">
+            <div class="text-center mt-8">
+                <h1 class="text-4xl font-bold">Top Product Recommendations</h1>
+                <p class="mt-4 text-xl">Curated Amazon picks — honest reviews and the best deals.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main" class="container mx-auto py-12 px-4">
+        <div class="mb-6">
+            <div class="flex gap-3 items-center">
+                <input id="search-input" class="w-full md:w-1/2 p-2 border rounded" placeholder="Search by ID or title...">
+                <select id="category-filter" class="p-2 border rounded">
+                    <option value="">All categories</option>
+                    <option value="furniture">Furniture</option>
+                    <option value="tech">Tech</option>
+                    <option value="uncategorized">Uncategorized</option>
+                </select>
+            </div>
+        </div>
+        <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Posts will be loaded dynamically -->
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-lg">More recommendations coming soon!</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center">
+            <p>As an Amazon Associate, I earn from qualifying purchases.</p>
+            <p class="mt-2">&copy; 2025 My Site. All rights reserved.</p>
+            <a href="/privacy.html" class="text-blue-300 hover:underline">Privacy Policy</a>
+        </div>
+    </footer>
+    <script src="/public/main.js"></script>
+</body>
+</html>
