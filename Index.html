@@ -1,59 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Amazon Affiliate Site — Best Product Recommendations</title>
-    <meta name="description" content="Curated Amazon product recommendations and honest reviews to help you choose the best gear.">
-    <meta property="og:title" content="Best Product Recommendations — Amazon Affiliate">
-    <meta property="og:description" content="Curated Amazon product recommendations and honest reviews to help you choose the best gear.">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%9B%92%3C/text%3E%3C/svg%3E">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Googole Verificaation -->
+  <meta name="google-site-verification" content="DmSb_BMZ9myG1J9Ry3r6KKAbKIzBWcDsQf9CvP3n8dg" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="title" content="Affiliate Store 2025 | Best Gadget Deals & Reviews">
+  <meta name="description" content="Affiliate Store – Discover the top gadgets of 2025 with expert reviews, comparisons, and the best Amazon deals. Explore smartphones, laptops, headphones, and more!">
+  <meta name="keywords" content="Affiliate Store, 2025 gadgets, Amazon deals, best gadgets, smartphone reviews, laptop reviews, headphone reviews, tech reviews, top gadgets, affiliate gadgets, online deals">
+  <meta name="author" content="Azizbek Flero">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://affiliate-store124.netlify.app/">
+  <meta property="og:title" content="Affiliate Store 2025 | Best Gadget Deals & Reviews">
+  <meta property="og:description" content="Affiliate Store – Discover the top gadgets of 2025 with expert reviews, comparisons, and the best Amazon deals. Explore smartphones, laptops, headphones, and more!">
+  <meta property="og:image" content="https://affiliate-store124.netlify.app/img/og-image.jpg">
+  <meta property="og:image:alt" content="Affiliate Store - 2025 Top Gadgets">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@AffiliateStore">
+  <meta name="twitter:title" content="Affiliate Store 2025 | Best Gadget Deals & Reviews">
+  <meta name="twitter:description" content="Affiliate Store – Discover the top gadgets of 2025 with expert reviews, comparisons, and the best Amazon deals. Explore smartphones, laptops, headphones, and more!">
+  <meta name="twitter:image" content="https://affiliate-store124.netlify.app/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="Affiliate Store - 2025 Top Gadgets">
+  <title>Affiliate Store</title>
+
+  <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./src/output.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-blue-600 px-3 py-2 rounded">Skip to content</a>
 
-    <!-- Header -->
-    <header class="bg-blue-600 text-white py-8">
-        <div class="container mx-auto">
-            <div class="text-center mt-8">
-                <h1 class="text-4xl font-bold">Top Product Recommendations</h1>
-                <p class="mt-4 text-xl">Curated Amazon picks — honest reviews and the best deals.</p>
-            </div>
-        </div>
-    </header>
+<body class="bg-white text-gray-900">
 
-    <!-- Main Content -->
-    <main id="main-content" role="main" class="container mx-auto py-12 px-4">
-        <div class="mb-6">
-            <div class="flex gap-3 items-center">
-                <input id="search-input" class="w-full md:w-1/2 p-2 border rounded" placeholder="Search by ID or title...">
-                <select id="category-filter" class="p-2 border rounded">
-                    <option value="">All categories</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="tech">Tech</option>
-                    <option value="uncategorized">Uncategorized</option>
-                </select>
-            </div>
-        </div>
-        <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Posts will be loaded dynamically -->
-        </div>
+<!-- Header -->
+<header class="fixed w-full bg-white/85 border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-lg font-semibold tracking-tight">
+      Affiliate Store
+    </h1>
+    <nav class="text-sm text-gray-600 space-x-6">
+      <a href="#products" class="hover:text-gray-900 transition">Products</a>
+      <a href="#about" class="hover:text-gray-900 transition">About</a>
+    </nav>
+  </div>
+</header>
 
-        <div class="mt-12 text-center">
-            <p class="text-lg">More recommendations coming soon!</p>
-        </div>
-    </main>
+<!-- Hero -->
+<section class="border-b border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-semibold mb-4">
+      Curated Products
+    </h2>
+    <p class="text-gray-600 max-w-xl">
+      A simple collection of products I personally recommend.
+      No hype. No exaggeration.
+    </p>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto text-center">
-            <p>As an Amazon Associate, I earn from qualifying purchases.</p>
-            <p class="mt-2">&copy; 2025 My Site. All rights reserved.</p>
-            <a href="/privacy.html" class="text-blue-300 hover:underline">Privacy Policy</a>
+<!-- Products -->
+<section id="products">
+  <div class="max-w-6xl mx-auto px-6 py-20">
+    <h3 class="text-xl font-semibold mb-10">
+      Products
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- Product Card -->
+      <div
+        class="border border-gray-200 p-4 transition-all duration-200
+               hover:border-gray-400 hover:translate-y-[-2px]">
+
+        <img
+          src="../img/furniture.png"
+          alt="Gaming Desk"
+          class="w-full h-52 object-cover mb-4">
+
+        <h4 class="text-base font-medium mb-1">
+          Gaming Desk
+        </h4>
+
+        <p class="text-sm text-gray-600 mb-3">
+          Grandder Gaming Desk Z Shaped 40 Inch Gamer Workstation, Home Computer Carbon Fiber Surface Gaming Desk PC Table with Headphone Hook, Carbon Fiber Black
+        </p>
+
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium">
+            $69
+          </span>
+
+          <a
+            href="https://www.amazon.com/Grandder-Workstation-Computer-Surface-Headphone/dp/B0DK4ZV524?pd_rd_w=rWrfq&content-id=amzn1.sym.8a163a7b-6a2a-45ae-8510-8d5419efb828&pf_rd_p=8a163a7b-6a2a-45ae-8510-8d5419efb828&pf_rd_r=PMB7E2BKTA2CWQSY0H6M&pd_rd_wg=xNpzH&pd_rd_r=0c69e318-5f99-4ada-9c6d-d8b097f594ff&pd_rd_i=B0DK4ZV524&th=1&linkCode=ll1&tag=azizbekstore-20&linkId=3a7ee59feb0c214d699f51b2ec5d7bc7&language=en_US&ref_=as_li_ss_tl"
+            target="_blank"
+            class="text-sm font-medium border border-gray-900 px-3 py-1.5
+                   hover:bg-gray-900 hover:text-white transition-colors duration-200">
+            View on Amazon
+          </a>
         </div>
-    </footer>
-    <script src="/public/main.js"></script>
+      </div>
+
+      <div
+        class="border border-gray-200 p-4 transition-all duration-200
+               hover:border-gray-400 hover:translate-y-[-2px]">
+
+        <img
+          src="../img/image.png"
+          alt="Amazon smart plug"
+          class="w-full h-52 object-cover mb-4">
+
+        <h4 class="text-base font-medium mb-1">
+         Amazon Smart Plug
+        </h4>
+
+        <p class="text-sm text-gray-600 mb-3">
+          Amazon Smart Plug | Works with Alexa | Simple setup, endless possibilities
+        </p>
+
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-medium">
+            $15
+          </span>
+
+          <a
+            href="https://www.amazon.com/Amazon-smart-plug-works-with-Alexa/dp/B089DR29T6?th=1&linkCode=ll1&tag=azizbekstore-20&linkId=4888c45cc9a7c1351530c65468696609&language=en_US&ref_=as_li_ss_tl"
+            target="_blank"
+            class="text-sm font-medium border border-gray-900 px-3 py-1.5
+                   hover:bg-gray-900 hover:text-white transition-colors duration-200">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 py-10 text-sm text-gray-500">
+    © 2025 Affiliate Store. Some links are affiliate links.
+    I may earn a commission at no extra cost to you.
+  </div>
+</footer>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z755Z9K31"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-1Z755Z9K31');
+  </script>
+
 </body>
 </html>
